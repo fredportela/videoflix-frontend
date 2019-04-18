@@ -1,0 +1,76 @@
+<div *ngIf="filters" class="mb-2">
+    <form [formGroup]="filterForm" class="form-inline">
+        <div class="form-group col-md-3">
+          <select formControlName="abrangencia"
+              (change)="setFilter('abrangencia', $event.target.value)"
+              class="form-control form-control-sm col-md-12">
+            <option value="">Abrangência</option>
+            <option *ngFor="let abrangencia of filters.abrangencia" [value]="abrangencia.value">{{abrangencia.value}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <select formControlName="fonte"
+              (change)="setFilter('fonte', $event.target.value)"
+              class="form-control form-control-sm col-md-12">
+            <option value="">Fonte</option>
+            <option *ngFor="let fonte of filters.fonte" [value]="fonte.value">{{fonte.value}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <select formControlName="status"
+              (change)="setFilter('status', $event.target.value)"
+              class="form-control form-control-sm col-md-12">
+            <option value="">Status</option>
+            <option *ngFor="let status of filters.status" [value]="status.value">{{status.value}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+            <select formControlName="data_cadastro"
+                (change)="setFilter('data_cadastro', $event.target.value)"
+                class="form-control form-control-sm col-md-12">
+              <option value="">Data Cadastro</option>
+              <option *ngFor="let dtCadastro of filters['data_cadastro']" [value]="dtCadastro.value">{{dtCadastro.value | date: 'dd/MM/yyyy'}}</option>
+            </select>
+          </div>
+      </form>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered" id="listLicitacao">
+      <thead class="thead-light">
+          <tr>
+              <th>Número Edital</th>
+              <th>Cliente</th>
+              <th>Resumo</th>
+              <th>Valor</th>
+              <th>Data Abertura</th>
+              <th>Url</th>
+          </tr>
+      </thead>
+      <tbody *ngIf="loading">
+        <tr>
+          <td colspan="6">
+            <app-loader></app-loader>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="listLicitacao">
+          <tr *ngIf="!listLicitacao.length">
+            <td colspan="6">Sem resultado</td>
+          </tr>
+          <tr *ngFor="let licitacao of listLicitacao" (click)="openModal($event, licitacao)">
+            <th scope="row" [innerHtml]="licitacao.numero_edital || '-'"></th>
+            <td>{{licitacao.cliente}}</td>
+            <td>{{licitacao.resumo}}</td>
+            <td [innerHtml]="licitacao.valor || '-'"></td>
+            <td [innerHtml]="licitacao.data_abertura || '-'"></td>
+            <td><a *ngIf="licitacao.url" target="_blank" (click)="openUrl($event, licitacao.url)"><i class="material-icons">link</i></a></td>
+          </tr>
+      </tbody>
+  </table>
+
+  <app-pagination [pagination]="pagination" (setPage)="getPageLicitacao($event)"></app-pagination>
+
+</div>
+
+<app-view-edital *ngIf="showModal" (modalClose)="closeModal()" [licitacao]="activeLicitacao"></app-view-edital>

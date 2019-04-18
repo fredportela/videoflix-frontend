@@ -1,0 +1,25 @@
+<nav id="navbar" class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">Editais</a>
+  <div *ngIf="isLoggedInUptodate" class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+      <a class="nav-item nav-link" routerLink="/e/list" routerLinkActive="active">Editais</a>
+      <a class="nav-item nav-link" (click)="logout()">Sair</a>
+    </div>
+  </div>
+  <!--
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="https://github.com/beeman" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://twitter.com/beeman_nl" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://medium.com/@beeman" target="_blank">
+        <i class="fa fa-medium"></i>
+      </a>
+    </div>
+  </div>
+  -->
+</nav>
