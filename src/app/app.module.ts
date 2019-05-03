@@ -19,7 +19,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 //Services
 import { AuthGuard } from './services/auth.guard';
 import { CookieService } from 'ngx-cookie-service';
-import { LicitacaoService } from './services/licitacao.service';
+import { VideoService } from './services/video.service';
 
 import { environment } from '../environments/environment';
 
@@ -50,7 +50,7 @@ import { LoginComponent } from './login/login.component';
   providers: [
     AuthGuard,
     CookieService,
-    LicitacaoService,
+    VideoService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

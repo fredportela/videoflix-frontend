@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endPoint: 'https://api.datalegis.inf.br'
+  endPoint: 'http://localhost:4000'
 };
 
 /*
