@@ -6,12 +6,16 @@ import { SnackBarService } from '../services/snack-bar.service';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ModalComponent } from './modal/modal.component';
 import { LoaderComponent } from './loader/loader.component';
+import { PlayerComponent } from './player/player.component';
+import { VideoCardComponent } from './video-card/video-card.component';
 
 @NgModule({
   declarations: [
     PaginationComponent,
     ModalComponent,
-    LoaderComponent
+    LoaderComponent,
+    PlayerComponent,
+    VideoCardComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,9 @@ import { LoaderComponent } from './loader/loader.component';
   exports: [
     PaginationComponent,
     ModalComponent,
-    LoaderComponent
+    LoaderComponent,
+    PlayerComponent,
+    VideoCardComponent
   ]
 })
 export class SharedModule { }

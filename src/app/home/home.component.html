@@ -1,17 +1,12 @@
-<div class="jumbotron">
-    <h2>Editais de Licitação</h2>
-    <hr class="my-4">
-    <h5 class="ml-3">Informações de editais cadastrados</h5>
-    <div class="container mt-4">
-        <app-loader *ngIf="loading"></app-loader>
-
-        <div *ngIf="statistics" class="alert alert-primary" role="alert">
-            <p>Total de Editais: <span class="badge badge-secondary">{{statistics.total_edital}}</span></p>
-            <p>Editais Aprovados: <span class="badge badge-success">{{statistics.total_edital_aprovado}}</span></p>
-            <p>Editais Rejeitados: <span class="badge badge-danger">{{statistics.total_edital_rejeitado}}</span></p>
-            <p>Editais Pendentes: <span class="badge badge-warning">{{statistics.total_edital_pendente}}</span></p>
-            <p>Total Documentos: <span class="badge badge-secondary">{{statistics.total_documento}}</span></p>
-            <p>Documentos Rejeitados: <span class="badge badge-danger">{{statistics.total_documento_rejeitado}}</span></p>
-        </div>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-9 col-lg-9">
+        <app-player></app-player>
+    </div>
+    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+        <app-video-card></app-video-card>
+        <app-video-card></app-video-card>
+        <app-video-card></app-video-card>
+        <app-video-card></app-video-card>
     </div>
 </div>
+  
