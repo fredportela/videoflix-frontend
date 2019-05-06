@@ -1,3 +1,27 @@
-.nav-link {
-    cursor: pointer;
+.navbar-collapse {
+    z-index: 999;
+
+    .nav-link {
+        cursor: pointer;
+    }
+}
+
+.overlay {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar-toggler {
+        cursor: pointer;
+    }
+    
+    .overlay {
+        display: block !important;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        transition: all 0.5s ease-in-out;
+    }
 }

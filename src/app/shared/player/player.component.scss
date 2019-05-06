@@ -1,6 +1,20 @@
-video {
-    width: 727px;
-    height: 409px;
-    left: 0px;
-    top: 0px;
+.card {
+    video {
+        min-width: 688px;
+        max-width: 727px;
+        height: 409px;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .card {
+        margin-bottom: 1rem;
+        
+        video {
+            width: 100% !important;
+            height: auto !important;
+        }
+    }
 }

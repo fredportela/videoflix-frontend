@@ -9,8 +9,7 @@ import { environment } from '../../../environments/environment';
 })
 export class PlayerComponent implements OnInit, OnChanges {
 
-  @Input() private video: any;
-  url: string;
+  @Input() public video: any;
 
   constructor() { }
 
@@ -19,8 +18,8 @@ export class PlayerComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.video) {
-      this.url = null;
-      setTimeout(() => { this.url = `${environment.endPoint}/movies/${this.video.id}`; }, 1);
+      this.video.url = null;
+      setTimeout(() => { this.video.url = `${environment.endPoint}/movies/${this.video.id}`; }, 1);
     }
   }
 

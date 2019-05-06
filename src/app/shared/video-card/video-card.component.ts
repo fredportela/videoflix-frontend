@@ -10,8 +10,7 @@ import { environment } from '../../../environments/environment';
 export class VideoCardComponent implements OnInit, OnChanges {
 
   @Output() videoSelect: EventEmitter<any> = new EventEmitter<any>();
-  @Input() private video: any;
-  url: string;
+  @Input() public video: any;
 
   constructor() { }
 
@@ -19,7 +18,7 @@ export class VideoCardComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.video) {
-      this.url = `${environment.endPoint}/thumbnail/${this.video.id}`;
+      this.video.url = `${environment.endPoint}/screenshot/${this.video.id}`;
     }
   }
 

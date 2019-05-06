@@ -4,13 +4,14 @@ import { Subscription } from 'rxjs';
 
 import { AuthService } from '../../services/auth.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  navbarOpen = false;
 
   private $getIsLoggedIn: Subscription;
   isLoggedInUptodate: boolean;
@@ -31,6 +32,10 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 
 }

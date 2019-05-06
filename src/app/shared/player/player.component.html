@@ -1,14 +1,14 @@
-<div *ngIf="url" class="card">
+<div *ngIf="video.url" class="card">
   <video id="app-video" class="video-js vjs-default-skin"
       preload="metadata" controls controlsList="nodownload" preload='auto'
       data-setup='{ "aspectRatio":"16:9" }'>
-      <source [src]="url" type='video/mp4'>
+      <source [src]="video.url" type='video/mp4'>
       <p class='vjs-no-js'>
           To view this video please enable JavaScript, and consider upgrading to a web browser that
           <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
       </p>
   </video>
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">{{video.description}}</p>
   </div>
 </div>
