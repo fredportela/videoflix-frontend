@@ -1,7 +1,7 @@
 <div *ngIf="video.url" class="card">
   <div class="embed-responsive embed-responsive-16by9">
     <video id="app-video" class="embed-responsive-item video-js vjs-default-skin"
-        preload="metadata" controls controlsList="nodownload" preload='auto'
+        preload="metadata" controls controlsList="nodownload" preload="auto"
         data-setup='{ "aspectRatio":"16:9" }'>
         <source [src]="video.url" type='video/mp4'>
         <p class='vjs-no-js'>
